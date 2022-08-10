@@ -10,9 +10,9 @@ const MultiCarousel = (props) => {
     return (
         <CarouselProvider
             visibleSlides={width > 1450 ? 4 : width > 1132 ? 3 : width > 870 ? 2 : 1}
-            step={5}
+            step={1}
             naturalSlideWidth={150}
-            naturalSlideHeight={width > 1450 ? 150 : width > 1132 ? 220 : width > 870 ? 200 : 150 }
+            naturalSlideHeight={width > 1630 ? 150 : width>1450 ?200 : width > 1132 ? 220 : width > 870 ? 200 : 150 }
             infinite
             totalSlides={props.items.length}
            
