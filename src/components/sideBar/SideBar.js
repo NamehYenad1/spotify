@@ -3,9 +3,9 @@ import HeadphonesIcon from '@mui/icons-material/Headphones';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { Typography, Box, Grid, Stack,Button } from '@mui/material'
 import sideBarItems from './sideBarItems'
-const SideBar = () => {
-    const [activeTab,setActiveTab] = useState(1)
-    const handleNavClick=(id)=> setActiveTab(id)
+const SideBar = (props) => {
+    const {activeTab, updateActiveTab} = props
+   
     return (
         <Box sx={{ width: { xs: '75px', sm: '240px' }, Height: '100%', display: 'flex', flexDirection: 'column', pt:'80px',backgroundColor:'primary.main' }}>
             <Stack direction="column"
@@ -28,22 +28,17 @@ const SideBar = () => {
             justifyContent="flex-start"
             alignItems={{xs:'center',sm:'flex-start'}}
             spacing={2}>
-                {sideBarItems.map((item, index)=>
-                {
-                    console.log(activeTab)
-                    return(
-                <>
-                    
-                    <Button onClick={()=>handleNavClick(item.id)}sx={{color:activeTab===item.id ? 'white' : 'primary.typo', width:'fit-content', pr:0,pl:{xs:'0', sm:'40px'}} }>
-                    <Stack direction='row' spacing={{xs:0,sm:3}}>
+                {sideBarItems.map((item, index)=>{return(
+                    <>
+                    <Button onClick={()=>updateActiveTab(item.id)}sx={{color:activeTab===item.id ? 'white' : 'primary.typo', width:'fit-content', pr:{xs:'0', sm:'20px'},pl:{xs:'0', sm:'20px'}} }>
+                    <Stack direction='row' spacing={{xs:0,sm:1}}>
                         <item.icon></item.icon>
                         <Typography sx={{display:{xs:'none', sm:'block'}}}>
                            {item.text}
                         </Typography>
                         </Stack> 
                     </Button>     
-                   
-                </>    
+                    </>    
                 )})  }
                 
             </Stack> 
