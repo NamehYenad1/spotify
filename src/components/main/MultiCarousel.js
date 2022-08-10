@@ -7,7 +7,6 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 
 const MultiCarousel = (props) => {
     const { width } = useWindowDimensions();
-    console.log(props.items)
     return (
         <CarouselProvider
             visibleSlides={width > 1450 ? 4 : width > 1132 ? 3 : width > 870 ? 2 : 1}
