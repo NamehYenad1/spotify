@@ -10,6 +10,7 @@ const Main = () => {
         const fetch_update = async()=>{
            const data= await Promise.all([fetch_new_releases(), fetch_featured_playlists()])
            console.log(data[0].albums.items)
+           console.log(data[1].playlists.items)
            setFeaturdPlaylists(data[0].albums.items)
            setNewReleases(data[1].playlists.items)
            setIsLoading(false)
